@@ -1,0 +1,81 @@
+
+  {% extends 'ef/base.html' %}
+  {% load static %}
+  {% block title %} <title>Nos médias</title> {% endblock  %}
+  {% block content %}
+      <section class="inner-header divider parallax layer-overlay overlay-white-8" data-bg-img="{% static 'images/bg/bg6.jpg' %}">
+        <div class="container pt-60 pb-60">
+          <!-- Section Content -->
+          <div class="section-content">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h2 class="title">Notre médiathèque</h2>
+                <ol class="breadcrumb text-center text-black mt-10">
+                  <li><a href="/">Accueil</a></li>
+                  <li class="active text-theme-colored">Médiathèque</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section:  Play Button -->
+      <section>
+        <div class="container">
+          <h4 class="line-bottom">Les vidéos</h4>
+          <div class="row">
+            {% for video in videos %}
+              <div class="col-md-4">
+                <div class="box-hover-effect play-button">
+                  <div class="effect-wrapper">
+                    <div class="thumb">
+                      <img class="img-fullwidth" src="{{video.image.url}}" alt="project">
+                    </div>
+                    <div class="text-holder text-holder-middle">
+                      <a href="{{video.lien}}" data-lightbox-gallery="youtube-video" title="Youtube Video"><img alt="" src="{%static 'images/play-button/s1.png' %}"></a>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 style="text-align: center">{{video.titre|truncatechars:50}}</h5>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <section>
+      <div class="container">
+        <h4 class="line-bottom">Notre Galerie</h4>
+        <div class="row">
+          {% for actu in actualites %}
+            {% for img in actu.imagesactualite_set.all %}
+              <div class="col-md-3">
+                <div class="box-hover-effect">
+                  <div class="effect-wrapper">
+                    <div class="thumb">
+                      <img class="img-fullwidth" width="300" height="350" src="{{img.image.url}}" alt="project">
+                    </div>
+                    <div class="overlay-shade bg-theme-colored-transparent-9"></div>
+                    <div class="text-holder text-holder-bottom">
+                      <h6 class="title text-center">{{actu.titre|truncatechars:70}}</h6>
+                    </div>
+                    <div class="icons-holder icons-holder-middle">
+                      <div class="icons-holder-inner">
+                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                          <a href="{{img.image.url}}" data-lightbox-gallery="gallery1" title="{{actu.titre|truncatechars:70}}"><i class="fa fa-picture-o"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="hover-link" data-lightbox-gallery="gallery1-link" href="https://placehold.it/280x380">View more</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endblock  %}
+

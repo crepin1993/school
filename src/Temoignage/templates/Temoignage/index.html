@@ -1,0 +1,206 @@
+
+  {% extends 'ef/base.html' %}
+  {% load static %}
+  {% block title %} <title>Présentation</title> {% endblock  %}
+  {% block content %}
+     <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{% static 'images/bg/bg1.jpg' %}">
+      <div class="container pt-70 pb-20">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="title text-white text-center">A propos</h2>
+              <ol class="breadcrumb text-center text-black mt-10">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/presentation">A propos</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- start Section: About -->
+    <section>
+      <div class="container">
+        <div class="section-title text-center mt-0">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="mt-0 line-height-1">Bienvenue sur <span class="text-theme-colored2">Notre site internet</span></h2>
+              <p>L'école nationale des eaux et forêt est une école multisectorielle</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 mb-sm-30">
+              <div class="box-hover-effect play-button">
+                <div class="effect-wrapper">
+                  <div class="thumb">
+                    <img class="img-fullwidth" src="{{dg.image.url}}" alt="project">
+                  </div>
+                  <div class="text-holder text-holder-middle">
+                    <a href="https://www.youtube.com/watch?v=F3QpgXBtDeo" data-lightbox-gallery="youtube-video" title="Youtube Video"><img alt="" src="images/play-button/s1.png"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-sm-30">
+              <div class="thumb-one">
+                <p>{{dg.mot_dg}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Courses -->
+    <section class="bg-lighter">
+      <div class="container">
+        <div class="section-title">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2 class="text-uppercase title">Nos<span class="text-theme-colored2"> Cours</span></h2>
+              <p>Consulter ici tous nos cours</p>
+            </div>
+          </div>
+        </div>
+        <div class="row multi-row-clearfix">
+          <div class="col-md-12">
+            <div class="owl-carousel-3col" data-nav="true">
+              {% for cour in cours %}
+                <div class="item">
+                  <div class="campaign bg-white maxwidth500 mb-30">
+                    <div class="thumb">
+                      <img src="{{cour.image.url}}" alt="" class="img-fullwidth">
+                      <div class="campaign-overlay"></div>
+                    </div>
+                    <div class="campaign-details clearfix p-30">
+                      <h3 class="mt-0 mb-0"><a href="#">{{cour.titre}}</a></h3>
+
+                      <p></p>
+                      <a class="btn btn-theme-colored font-weight-600 font-11 mt-10" target="_blank" href="{{cour.fichier.url}}">Savoir plus</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--start funfact Section-->
+    <section  class="divider parallax layer-overlay overlay-dark-8" data-bg-img="{% static 'images/bg/bg2.jpg' %}">
+      <div class="container pt-90 pb-90">
+        <div class="section-content">
+          <div class="row">
+            {% for stat in stats %}
+              <div class="col-xs-12 col-sm-6 col-md-3 mb-md-0">
+                <div class="funfact text-center">
+                  <i class="pe-7s-note2 text-theme-colored2"></i>
+                  <h2 data-animation-duration="2000" data-value="{{stat.nombre}}" class="animate-number text-white font-38">0</h2>
+                  <h5 class="text-white text-uppercase mb-0">{{stat.titre}}</h5>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--start teacher Section-->
+    <section>
+      <div class="container">
+        <div class="section-title text-center mt-0">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="mt-0 line-height-1">Voir <span class="text-theme-colored2">Notre</span> Equipe</h2>
+              <p>Ci-dessous les membres de l'administration</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="owl-carousel-4col">
+                {% for membre in administrations %}
+                  <div class="item">
+                    <div class="team-member">
+                      <div class="thumb">
+                        <img width="262" height="300" src="{{membre.image.url}}" alt="">
+                      </div>
+                      <div class="details">
+                        <h3 class="text-uppercase mb-0"><a href="#">{{membre.fullname}}</a></h3>
+                        <h5 class="text-theme-colored2 mt-0">{{membre.grade}}</h5>
+                        <p>{{membre.resume}}</p>
+                      </div>
+                      <div class="details">
+                        <h5 class="text-theme-colored2 mt-0"><a target="_blank" href="{{membre.cv.url}}">Voir le cv</a></h5>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title text-center mt-0">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="mt-0 line-height-1">Nos <span class="text-theme-colored2"></span> Enseignant</h2>
+              <p>Ci-dessous les enseignants</p>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="owl-carousel-4col">
+                {% for formateur in formateurs %}
+                  <div class="item">
+                    <div class="team-member">
+                      <div class="thumb">
+                        <img width="262" height="300" src="{{formateur.image.url}}" alt="">
+                      </div>
+                      <div class="details">
+                        <h3 class="text-uppercase mb-0"><a href="#">{{formateur.fullname}}</a></h3>
+                        <h5 class="text-theme-colored2 mt-0">{{formateur.grade}}</h5>
+                        <p>{{formateur.resume}}</p>
+                      </div>
+                      <div class="details">
+                        <h5 class="text-theme-colored2 mt-0"><a target="_blank" href="{{formateur.cv.url}}">Voir le cv</a></h5>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--start Clients Section-->
+    <section class="clients bg-theme-colored2" style="background-color: #1881f2 !important;">
+      <div class="container pt-10 pb-0">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Section: Clients -->
+            <div class="owl-carousel-6col text-center">
+              {% for partenaire in partenaires %}
+                <div class="item"> <a href="#"><img src="{{partenaire.image.url}}" alt=""></a></div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock  %}
+

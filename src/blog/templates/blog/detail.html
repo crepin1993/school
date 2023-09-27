@@ -1,0 +1,97 @@
+
+  {% extends 'ef/base.html' %}
+  {% load static %}
+  {% block title %} <title>Détails</title> {% endblock  %}
+  {% block content %}
+    <section class="inner-header divider parallax layer-overlay overlay-white-8" data-bg-img="{% static 'images/bg/bg6.jpg' %}">
+      <div class="container pt-60 pb-60">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3 class="font-28">Détail de l'événement</h3>
+              <ol class="breadcrumb text-center text-black mt-10">
+                <li><a href="/">Accueil</a></li>
+                <li class="active text-theme-colored">Evénement</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-theme-colored">
+      <div class="container pt-40 pb-40">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h2 id="basic-coupon-clock" class="text-white"></h2>
+            <!-- Final Countdown Timer Script -->
+            <script type="text/javascript">
+              $(document).ready(function() {
+                $('#basic-coupon-clock').countdown('2024/10/10', function(event) {
+                  $(this).html(event.strftime('%D jours %H:%M:%S'));
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <ul>
+              <li>
+                <h5>Titre:</h5>
+                <p>{{blog.titre}}</p>
+              </li>
+              <li>
+                <h5>Lieu:</h5>
+                <p>{{blog.lieu}}</p>
+              </li>
+              <li>
+                <h5>Date:</h5>
+                <p>{{blog.created_on}}</p>
+              </li>
+
+
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <img src="{{ blog.image.url}}" alt="">
+          </div>
+        </div>
+        <div class="row mt-60">
+          <div class="col-md-6">
+            <h4 class="mt-0"> Description</h4>
+            <p>{{blog.content}}</p>
+          </div>
+          <div class="col-md-6">
+            <blockquote>
+              <p>{{ blog.content|truncatechars:100 }}</p>
+              <footer>Publié sous le titre <cite title="Source Title">{{blog.titre}}</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mb-20">Photo Gallerie</h4>
+            <div class="owl-carousel-5col" data-nav="true">
+
+              {% for image in images  %}
+                <div class="item"><img width="285" height="215" src="{{ image.image.url}}" alt=""></div>
+              {% endfor  %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock  %}
+

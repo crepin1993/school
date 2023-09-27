@@ -1,0 +1,84 @@
+
+{% load static %}
+<header id="header" class="header">
+    <div class="header-top bg-theme-colored sm-text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="widget no-border m-5 text-white" id="horloge">
+              <i class="fa fa-clock-o text-white" ></i>
+
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="widget no-border m-0">
+              <ul class="list-inline text-right flip sm-text-center mt-5">
+                <li>
+                  <a class="text-white" href="#">FAQ</a>
+                </li>
+                <li class="text-white">|</li>
+                <li>
+                  <a class="text-white" href="#">Help Desk</a>
+                </li>
+                <li class="text-white">|</li>
+                <li>
+                  <a class="text-white" href="#">Support</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-middle p-0 bg-lighter xs-text-center">
+      <div class="container pt-20 pb-20">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="index-mp-layout1.html"><img src="{% static 'images/enef.jpg' %}" alt=""></a>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="widget no-border sm-text-center mt-10 mb-10 m-0">
+              <i class="fa fa-envelope text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
+              <a href="#" class="font-12 text-gray text-uppercase">Adresse email</a>
+              <h5 class="font-13 text-black m-0"> enef@yourdomain.com</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="widget no-border sm-text-center mt-10 mb-10 m-0">
+              <i class="fa fa-phone-square text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
+              <a href="#" class="font-12 text-gray text-uppercase">Contactez-nous au numéro suivant</a>
+              <h5 class="font-13 text-black m-0"> +(241) 345 6789</h5>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="widget no-border sm-text-center mt-10 mb-10 m-0">
+              <i class="fa fa-building-o text-theme-colored2 font-32 mt-5 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
+              <a href="#" class="font-12 text-gray text-uppercase">Localisation</a>
+              <h5 class="font-13 text-black m-0"> Cap Esterias</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="header-nav-wrapper navbar-scrolltofixed bg-white">
+        <div class="container">
+          <nav id="menuzord" class="menuzord red">
+            <ul class="menuzord-menu">
+                <li class="active"><a href="/">Accueil</a></li>
+                <li><a href="/presentation">A propos</a></li>
+                <li><a href="/formation">Formation</a></li>
+                <li><a href="/blog">Actualités</a></li>
+                <li><a href="/media">Médiathèques</a></li>
+                <li><a href="/scolarite">Scolarite</a></li>
+                <li><a href="/contact">Contacts</a></li>
+
+            </ul>
+            <div class="pull-right sm-pull-none mb-sm-15">
+              <a class="btn btn-colored btn-flat btn-theme-colored2 mt-15 mt-sm-10 pt-10 pb-10 " target="_blank" href="/admin">Se connecter</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>

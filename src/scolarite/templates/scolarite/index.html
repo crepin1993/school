@@ -1,0 +1,67 @@
+
+  {% extends 'ef/base.html' %}
+  {% load static %}
+  {% block title %} <title>Scolarité</title> {% endblock  %}
+  {% block content %}
+    <section class="inner-header divider parallax layer-overlay overlay-white-8" data-bg-img="{% static 'images/bg/bg6.jpg' %}">
+      <div class="container pt-60 pb-60">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3 class="font-28">SCOLARITE</h3>
+              <ol class="breadcrumb text-center text-black mt-10">
+                <li><a href="/">Accueil</a></li>
+                <li class="active text-theme-colored">Scolarité</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container pb-0">
+        <div class="row text-center">
+          {% for actu in actualites %}
+            <div class="col-sm-4">
+              <div class="icon-box iconbox-border iconbox-theme-colored p-40">
+                <a href="#" class="icon icon-gray icon-bordered icon-border-effect effect-flat">
+                  <i class="pe-7s-users"></i>
+                </a>
+                <h5 class="icon-box-title">{{actu.titre}}</h5>
+                <p class="text-gray">{{actu.created_on}}</p>
+                <a class="btn btn-dark btn-sm mt-15" target="_blank" href="{{actu.fichier.url}}">Télécharger maintenant</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container pt-0">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="heading-line-bottom mt-0 mb-30">
+              <h4 class="heading-title">Les emplois du temps</h4>
+            </div>
+            {% for classe in classes %}
+              {% for emploidutemp in classe.emploidutemps_set.all %}
+                <div class="icon-box mb-0 p-0">
+                  <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
+                    <i class="pe-7s-users"></i>
+                  </a>
+                  <h3 class="icon-box-title pt-15 mt-0 mb-40">{{classe.libelle}}</h3>
+                  <hr>
+                  <p class="text-gray"></p>
+                  <a class="btn btn-dark btn-sm mt-15" target="_blank" href="{{emploidutemp.fichier.url}}">{{emploidutemp.titre}}</a>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock  %}
+
